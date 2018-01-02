@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/createkey_root"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/background_dark"
+    android:orientation="vertical"
+    tools:context="com.alimojarrad.encrypter.CreateKey.CreateKeyActivity">
+
+    <FrameLayout
+        android:id="@+id/createkey_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        >
+
+        <ImageButton
+            android:id="@+id/createkey_back"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:background="@null"
+            android:layout_gravity="left|center_vertical"
+            android:layout_marginLeft="16dp"
+            app:srcCompat="@drawable/vector_back" />
+
+        <TextView
+            android:id="@+id/createkey_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_weight="0.8"
+            android:text="Create A Key"
+            android:textColor="@android:color/white" />
+
+        <Button
+            android:id="@+id/createkey_save"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:background="@null"
+            android:text="Save"
+            android:layout_gravity="center_vertical|right"
+            android:textColor="@android:color/white" />
+
+
+
+    </FrameLayout>
+
+    <GridView
+        android:id="@+id/createkey_grid"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="5dp"
+        android:layout_weight="1"
+        android:background="@android:drawable/screen_background_light_transparent"
+        android:gravity="center"
+        android:numColumns="1" />
+
+    <Button
+        android:id="@+id/createkey_generate_randomkey"
+        android:layout_width="270dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_gravity="center"
+        android:layout_margin="5dp"
+        android:layout_weight="0"
+        android:background="@drawable/buttonshape"
+        android:shadowDx="0"
+        android:shadowDy="0"
+        android:shadowRadius="5"
+        android:text="Generate Random Key"
+        android:textColor="#FFFFFF"
+        android:textSize="20sp" />
+
+</LinearLayout>
