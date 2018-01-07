@@ -7,7 +7,7 @@ import android.widget.BaseAdapter
 import android.widget.TextView
 import com.alimojarrad.encrypter.R
 
-class CustomGrid(private val mContext: Context, private val keys: Array<String>) : BaseAdapter() {
+class CustomGridAdapter(private val mContext: Context, private var keys: HashMap<String,String>) : BaseAdapter() {
 
     override fun getCount(): Int {
         // TODO Auto-generated method stub
@@ -22,6 +22,11 @@ class CustomGrid(private val mContext: Context, private val keys: Array<String>)
     override fun getItemId(position: Int): Long {
         // TODO Auto-generated method stub
         return 0
+    }
+
+    fun refresh(keys: HashMap<String,String>){
+        this.keys = keys
+        notifyDataSetChanged()
     }
 
 
@@ -40,7 +45,8 @@ class CustomGrid(private val mContext: Context, private val keys: Array<String>)
         val gridItemText = grid.findViewById<TextView>(R.id.grid_item) as TextView
         val gridColorText = grid.findViewById<TextView>(R.id.grid_color) as TextView
 
-         gridItemText.text = keys[position]
+        gridItemText.text = keys.keys.elementAt(position)
+        gridColorText.text = keys[gridItemText.text.toString()]
 
         return grid
     }

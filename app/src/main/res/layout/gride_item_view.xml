@@ -18,7 +18,7 @@
         android:id="@+id/grid_color"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="50dp"
+        android:textSize="40dp"
         tools:text="#FFFFFF"
         android:gravity="right"
         android:layout_marginEnd="5dp"

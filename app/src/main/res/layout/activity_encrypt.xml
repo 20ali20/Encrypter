@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background1"
+    tools:context="com.alimojarrad.encrypter.Encrypt.EncryptActivity">
+
+    <FrameLayout
+        android:id="@+id/encrypt_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@android:color/background_dark"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageButton
+            android:id="@+id/encrypt_back"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="left|center_vertical"
+            android:layout_marginLeft="16dp"
+            android:background="@null"
+            app:srcCompat="@drawable/vector_back" />
+
+
+    </FrameLayout>
+
+    <EditText
+        android:id="@+id/encrypt_message"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="90dp"
+        android:background="@drawable/textshape"
+        android:ems="10"
+        android:hint="Please enter your message to be encrypted"
+        android:inputType="textMultiLine"
+        android:lines="10"
+        android:textColor="#FFFFFF"
+        android:textColorHint="#FFFFFF"
+        app:layout_constraintBottom_toTopOf="@+id/encrypt_key"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/encrypt_key"
+        style="@style/mainactivity_button"
+        android:layout_width="0dp"
+        android:layout_marginBottom="16dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="16dp"
+        android:text="Add Key"
+        app:layout_constraintBottom_toTopOf="@+id/encrypt_encrypt"
+        app:layout_constraintEnd_toStartOf="@+id/encrypt_addimage"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/encrypt_message" />
+
+    <Button
+        android:id="@+id/encrypt_encrypt"
+        style="@style/mainactivity_button"
+        android:layout_width="0dp"
+        android:layout_marginBottom="16dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:text="Encrypt"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/encrypt_stegranography"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/encrypt_key" />
+
+    <Button
+        android:id="@+id/encrypt_stegranography"
+        style="@style/mainactivity_button"
+        android:layout_width="0dp"
+        android:layout_marginEnd="8dp"
+        android:text="Steganography"
+        app:layout_constraintBottom_toBottomOf="@+id/encrypt_encrypt"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/encrypt_encrypt"
+        app:layout_constraintTop_toTopOf="@+id/encrypt_encrypt" />
+
+    <Button
+        android:id="@+id/encrypt_addimage"
+        style="@style/mainactivity_button"
+
+        android:layout_width="0dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:text="Add Image"
+        app:layout_constraintBottom_toBottomOf="@+id/encrypt_key"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/encrypt_key"
+        app:layout_constraintTop_toTopOf="@+id/encrypt_key" />
+</android.support.constraint.ConstraintLayout>

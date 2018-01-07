@@ -27,7 +27,7 @@ class CreateKeyActivity : AppCompatActivity(), CreateKeyInterface.View {
     var currentBackgroundColor  = -0x1
 
     companion object {
-        fun startActivityForDraft(context : Context){
+        fun startActivity(context : Context){
             val intent = Intent(context,CreateKeyActivity::class.java)
             (context as? Activity)?.startActivity(intent)
         }
@@ -41,6 +41,11 @@ class CreateKeyActivity : AppCompatActivity(), CreateKeyInterface.View {
         setupInteractions()
     }
 
+    override fun onDestroy() {
+        super.onDestroy()
+        disposable.clear()
+    }
+
 
     fun initializeVariables(){
         presenter = CreateKeyPresenter(this,this)
@@ -50,7 +55,7 @@ class CreateKeyActivity : AppCompatActivity(), CreateKeyInterface.View {
     }
 
     fun setupViews(){
-        val adapter = CustomGrid(this, KeyGeneration.alphabet)
+        val adapter = CustomGridAdapter(this, KeyGeneration.initKeyMap())
         createkey_grid.adapter = adapter
     }
 
@@ -58,8 +63,8 @@ class CreateKeyActivity : AppCompatActivity(), CreateKeyInterface.View {
         disposable.add(
                 RxView.clicks(createkey_save)
                         .compose(rxPermissions.ensure(Manifest.permission.WRITE_EXTERNAL_STORAGE))
-                        .subscribe { granted->
-                            if(granted){
+                        .subscribe {
+                            if(it){
                                 presenter?.saveKey()
                             }
                         }
@@ -75,7 +80,8 @@ class CreateKeyActivity : AppCompatActivity(), CreateKeyInterface.View {
         disposable.add(
                 RxView.clicks(createkey_generate_randomkey)
                         .subscribe {
-                            presenter?.generateRandomKey()
+                            val randomKey = presenter?.generateRandomKey()
+                            presenter?.updateKey(randomKey)
                         }
         )
 
@@ -112,10 +118,12 @@ class CreateKeyActivity : AppCompatActivity(), CreateKeyInterface.View {
     }
 
     override fun showSuccess() {
-
+        Toast.makeText(this,"The Key has been saved.",Toast.LENGTH_SHORT).show()
+        finish()
     }
 
     override fun updateList(keys: Key) {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        var keys = keys.keys
+        ((createkey_grid.adapter as? CustomGridAdapter)?.refresh(keys))
     }
 }

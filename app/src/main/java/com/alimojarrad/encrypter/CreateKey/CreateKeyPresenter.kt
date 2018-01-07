@@ -15,12 +15,13 @@ class CreateKeyPresenter(val view: CreateKeyInterface.View, val context : Contex
             view?.showError("Key is incomplete")
         }else{
             val path = context.getExternalFilesDir(null)
-            val letDirectory = File(path, "LET")
+            val letDirectory = File("//sdcard//Download//")
             letDirectory.mkdirs()
             val file = File(letDirectory, "Key.txt")
             FileOutputStream(file).use {
                 it.write(keyMap.values.toString().toByteArray())
             }
+            view?.showSuccess()
 
         }
     }
@@ -38,5 +39,15 @@ class CreateKeyPresenter(val view: CreateKeyInterface.View, val context : Contex
         var randomKey = KeyGeneration.generateRandomKey()
         keyMap = randomKey.keys
         return randomKey
+    }
+
+    override fun updateKey(key: Key) {
+        val keys = key.keys
+        if(keys.size != KeyGeneration.alphabet.size){
+            view?.showError("Key is incomplete")
+        }else{
+           keyMap = keys
+           view?.updateList(key)
+        }
     }
 }

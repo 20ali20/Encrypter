@@ -16,5 +16,6 @@ interface CreateKeyInterface {
         fun saveKey()
         fun addToKeys(key : String, value : String)
         fun generateRandomKey() : Key
+        fun updateKey(key : Key)
     }
 }

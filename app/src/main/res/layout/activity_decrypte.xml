@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background1"
+    tools:context="com.alimojarrad.encrypter.Decrypt.DecrypteActivity">
+
+    <FrameLayout
+        android:id="@+id/decrypt_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@android:color/background_dark"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageButton
+            android:id="@+id/decrypt_back"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="left|center_vertical"
+            android:layout_marginLeft="16dp"
+            android:background="@null"
+            app:srcCompat="@drawable/vector_back" />
+
+        <TextView
+            android:id="@+id/decrypt_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_weight="0.8"
+            android:text="Decrypt Your Image"
+            android:textColor="@android:color/white" />
+
+
+    </FrameLayout>
+
+    <Button
+        android:id="@+id/selectImg"
+        style="@style/mainactivity_button"
+        android:layout_marginTop="8dp"
+        android:text="Select Image"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/decrypt_toolbar" />
+
+    <Button
+        android:id="@+id/decKey"
+        style="@style/mainactivity_button"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="8dp"
+        android:text="Get Key"
+        app:layout_constraintBottom_toTopOf="@+id/dec_btn"
+        app:layout_constraintEnd_toEndOf="@+id/selectImg"
+        app:layout_constraintStart_toStartOf="@+id/selectImg"
+        app:layout_constraintTop_toBottomOf="@+id/imageView" />
+
+    <Button
+        android:id="@+id/dec_btn"
+        style="@style/mainactivity_button"
+        android:layout_width="0dp"
+        android:layout_alignBottom="@+id/decKey"
+        android:layout_alignParentEnd="true"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:text="Decrypt"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/decrypt_stegranography"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/decKey" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintBottom_toTopOf="@+id/decKey"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/selectImg" />
+
+    <Button
+        android:id="@+id/decrypt_stegranography"
+        style="@style/mainactivity_button"
+        android:layout_width="0dp"
+        android:layout_marginEnd="8dp"
+        android:text="Steganography"
+        app:layout_constraintBottom_toBottomOf="@+id/dec_btn"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/dec_btn"
+        app:layout_constraintTop_toTopOf="@+id/dec_btn" />
+
+</android.support.constraint.ConstraintLayout>
